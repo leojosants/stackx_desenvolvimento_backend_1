@@ -3,10 +3,10 @@
 
 import { events } from "./utils/domEvents.js";
 
-import { 
-    appendChildFN, 
-    createDocumentFragmentFN, 
-    prependFN, 
+import {
+    appendChildFN,
+    createDocumentFragmentFN,
+    prependFN,
     querySelectorFN,
 } from "./utils/domFunctions.js";
 
@@ -18,70 +18,71 @@ import {
 } from "./utils/generalFunctions.js";
 
 
-(() => {
-    const domElements = {
-        generateUserButton: querySelectorFN('[data-generate-user-button]'),
-        containerLoading: querySelectorFN('[data-container-loading]'),
-    };
+(
+    function main() {
+        const domElements = {
+            generateUserButton: querySelectorFN('[data-generate-user-button]'),
+            containerLoading: querySelectorFN('[data-container-loading]'),
+        };
 
-    const fetchFromAPI = async () => {
-        try {
-            visibleLoading(
-                domElements.containerLoading, 'class-hide', 'class-visible'
-            );
+        const fetchFromAPI = async () => {
+            try {
+                visibleLoading(
+                    domElements.containerLoading, 'class-hide', 'class-visible'
+                );
 
-            const url = 'https://randomuser.me/api/';
-            const response = await fetch(url);
-            const data = await response.json();
+                const url = 'https://randomuser.me/api/';
+                const response = await fetch(url);
+                const data = await response.json();
 
-            setTimeout(
-                () => hideLoading(
-                    domElements.containerLoading, 'class-visible', 'class-hide'
-                ), 1000
-            );
+                setTimeout(
+                    () => hideLoading(
+                        domElements.containerLoading, 'class-visible', 'class-hide'
+                    ), 1000
+                );
 
-            renderUserData(data);
+                renderUserData(data);
+            }
+            catch (error) {
+                console.log(error);
+            }
         }
-        catch (error) {
-            console.log(error);
-        }
-    }
 
-    const renderUserData = (data) => {
-        const user = data.results[0];
+        const renderUserData = (data) => {
+            const user = data.results[0];
 
-        const {
-            name: {
-                title: termTreatment,
-                first: firstName,
-                last: lastName,
-            },
-            dob: {
-                age,
-            },
-            email,
-            phone,
-            cell,
-            picture: {
-                large: image
-            },
-            location: {
-                street: {
-                    number: streetNumber,
-                    name: streetName,
+            const {
+                name: {
+                    title: termTreatment,
+                    first: firstName,
+                    last: lastName,
                 },
-                postcode,
-                city,
-                state,
-                country,
-            },
-        } = user;
+                dob: {
+                    age,
+                },
+                email,
+                phone,
+                cell,
+                picture: {
+                    large: image
+                },
+                location: {
+                    street: {
+                        number: streetNumber,
+                        name: streetName,
+                    },
+                    postcode,
+                    city,
+                    state,
+                    country,
+                },
+            } = user;
 
-        const container = querySelectorFN('[data-container]');
-        const cardElement = querySelectorFN('[data-container-card]');
-        const fragment = createDocumentFragmentFN();
+            const container = querySelectorFN('[data-container]');
+            const cardElement = querySelectorFN('[data-container-card]');
+            const fragment = createDocumentFragmentFN();
 
-        cardElement.innerHTML = `
+            cardElement.innerHTML = `
             <div class="class-card__head">
                 <a href="mailto:${email}" data-user-email>
                     <i class="fas fa-envelope"></i>
@@ -159,29 +160,30 @@ import {
             </div>
         `;
 
-        appendChildFN(fragment, cardElement);
-        prependFN(container, fragment);
-    }
+            appendChildFN(fragment, cardElement);
+            prependFN(container, fragment);
+        }
 
-    domElements.generateUserButton.addEventListener(
-        events.click, () => {
-            disabledButton(
-                domElements.generateUserButton
-            );
-
-            fetchFromAPI();
-
-            setTimeout(
-                () => enabledButton(
+        domElements.generateUserButton.addEventListener(
+            events.click, () => {
+                disabledButton(
                     domElements.generateUserButton
-                ), 500
-            );
-        }
-    );
+                );
 
-    window.addEventListener(
-        events.DOMContentLoaded, () => {
-            fetchFromAPI();
-        }
-    );
-})();
+                fetchFromAPI();
+
+                setTimeout(
+                    () => enabledButton(
+                        domElements.generateUserButton
+                    ), 500
+                );
+            }
+        );
+
+        window.addEventListener(
+            events.DOMContentLoaded, () => {
+                fetchFromAPI();
+            }
+        );
+    }
+)();
