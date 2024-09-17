@@ -7,3 +7,6 @@
 
 - O que entregar?
   - Enviar o Print ou vídeo de como ficou a sua finalização da requisição.
+ 
+### Demonstração:
+- [telnet__instalacao_e_requisicao.zip](https://github.com/user-attachments/files/17035474/telnet__instalacao_e_requisicao.zip)
