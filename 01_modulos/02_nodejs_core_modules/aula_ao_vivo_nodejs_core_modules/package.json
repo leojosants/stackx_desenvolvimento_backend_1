@@ -1,18 +1,21 @@
 {
-  "name": "aula_npm_gerenciador_de_pacotes_nodejs",
+  "name": "aula_ao_vivo_nodejs_core_modules",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "nodemon": "nodemon index.js"
   },
-  "author": "leojosants",
+  "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@types/express": "^5.0.0",
     "nodemon": "^3.1.6"
   },
   "dependencies": {
-    "aula_npm_gerenciador_de_pacotes_nodejs": "file:"
+    "aula_ao_vivo_nodejs_core_modules": "file:",
+    "express": "^4.21.0"
   }
 }
