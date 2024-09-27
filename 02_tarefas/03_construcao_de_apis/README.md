@@ -28,7 +28,7 @@
   - Ainda no terminal aberto, execute o comando abaixo para clonar o projeto:
 
     ```bash
-        git clone link_do_repositório_github
+        git clone https://github.com/leojosants/stackx_desenvolvimento_backend_1/tree/main/02_tarefas/03_construcao_de_apis
     ```
 
 - Passo 3
