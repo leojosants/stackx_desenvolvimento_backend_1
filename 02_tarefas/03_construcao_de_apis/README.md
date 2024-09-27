@@ -36,7 +36,7 @@
   - Ainda no terminal aberto, execute o comando abaixo para navegar até o projeto clonado:
 
     ```bash
-        cd nome_do_projeto
+        cd stackx_desenvolvimento_backend_1/tree/main/02_tarefas/03_construcao_de_apis
     ```
 
 - Passo 4
