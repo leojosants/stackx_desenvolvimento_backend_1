@@ -1,5 +1,5 @@
 {
-  "name": "atual",
+  "name": "03_construcao_de_apis",
   "version": "1.0.0",
   "main": "index.js",
   "type": "module",
@@ -12,7 +12,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "atual": "file:",
+    "03_construcao_de_apis": "file:",
     "express": "^4.21.0",
     "joi": "^17.13.3",
     "joi-translation-pt-br": "^0.0.10"

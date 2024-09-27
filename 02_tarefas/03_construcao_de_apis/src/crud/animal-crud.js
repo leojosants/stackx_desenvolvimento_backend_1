@@ -1,27 +1,14 @@
 import { promises as fs } from 'fs';
+import { formatJsonFile } from '../utils/format-json-file.js';
+import { checkExistenceOrCreateFile } from '../utils/check-existence-or-create-file.js';
+import { absoluteFilePath } from '../utils/absolute-file-path.js';
+import { loadAnimal } from '../utils/load-animal.js';
 
-const jsonFileConfiguration = {
-    path: String('../database/data.json'),
-    indentation: 2,
-    replacer: null,
-};
-
-const readAnimal = async () => {
-    try {
-        const data = await fs.readFile(jsonFileConfiguration.path, 'utf-8');
-        console.log(data)
-
-        if (data.length === 0) {
-            return [];
-        }
-
-        return JSON.parse(data);
+(
+    () => {
+        checkExistenceOrCreateFile();
     }
-    catch (error) {
-        console.error('Erro ao ler o arquivo:', error);
-        return [];
-    }
-}
+)();
 
 const createAnimal = async (request, response) => {
     const {
@@ -41,13 +28,12 @@ const createAnimal = async (request, response) => {
         animal_description: String(animal_description).toLowerCase(),
     };
 
-    const data = await readAnimal();
+    const data = await loadAnimal();
 
     data.push(animal);
 
     await fs.writeFile(
-        jsonFileConfiguration.path,
-        JSON.stringify(data, jsonFileConfiguration.replacer, jsonFileConfiguration.indentation)
+        absoluteFilePath, formatJsonFile(data)
     );
 
     return response.status(201).send(
@@ -56,7 +42,7 @@ const createAnimal = async (request, response) => {
 };
 
 const readAllAnimal = async (request, response) => {
-    const data = await readAnimal();
+    const data = await loadAnimal();
 
     if (data.length === 0) {
         return response.status(404).send(
@@ -72,7 +58,7 @@ const readAllAnimal = async (request, response) => {
 const readAnimalById = async (request, response) => {
     const id = Number(request.params.id);
 
-    const data = await readAnimal();
+    const data = await loadAnimal();
 
     const filteredData = data.filter(
         (item) => item.animal_id !== id
@@ -96,7 +82,7 @@ const readAnimalById = async (request, response) => {
 const updateAnimalById = async (request, response) => {
     const id = Number(request.params.id);
     const updatedData = request.body;
-    const data = await readAnimal();
+    const data = await loadAnimal();
 
     const index = data.findIndex(
         (item) => item.animal_id === id
@@ -109,8 +95,7 @@ const updateAnimalById = async (request, response) => {
         };
 
         await fs.writeFile(
-            jsonFileConfiguration.path,
-            JSON.stringify(data, jsonFileConfiguration.replacer, jsonFileConfiguration.indentation)
+            absoluteFilePath, formatJsonFile(data)
         );
 
         return response.status(200).send(
@@ -124,9 +109,9 @@ const updateAnimalById = async (request, response) => {
     }
 }
 
-const deleteAnimalById = async (req, res) => {
-    const id = Number(req.params.id);
-    const data = await readAnimal();
+const deleteAnimalById = async (request, response) => {
+    const id = Number(request.params.id);
+    const data = await loadAnimal();
 
     const filteredData = data.filter(
         (item) => item.animal_id !== id
@@ -134,16 +119,15 @@ const deleteAnimalById = async (req, res) => {
 
     if (filteredData.length < data.length) {
         await fs.writeFile(
-            jsonFileConfiguration.path,
-            JSON.stringify(filteredData, jsonFileConfiguration.replacer, jsonFileConfiguration.indentation)
+            absoluteFilePath, formatJsonFile(filteredData)
         );
 
-        return res.status(200).send(
+        return response.status(200).send(
             { message: `Registro de id ${id} excluído!` }
         );
     }
     else {
-        return res.status(404).send(
+        return response.status(404).send(
             { message: 'Registro não encontrado!' }
         );
     }

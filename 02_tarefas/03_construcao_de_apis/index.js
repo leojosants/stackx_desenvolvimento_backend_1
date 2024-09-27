@@ -1,12 +1,13 @@
 import express from 'express';
-import validateAnimal from './middlewares/validate-animal.js';
+import validateAnimal from './src/middlewares/validate-animal.js';
 import {
     createAnimal,
     deleteAnimalById,
     readAllAnimal,
     readAnimalById,
     updateAnimalById,
-} from './controller/animal.js';
+} from './src/crud/animal-crud.js';
+import { loadAnimal } from './src/utils/load-animal.js';
 
 (
     () => {
@@ -14,12 +15,26 @@ import {
         const port = Number(3000);
 
         const endpoints = {
-            createAnimal: String('/animals'),
-            readAllAnimals: String('/animals'),
-            readAnimalById: String('/animals/:id'),
-            updateAnimalById: String('/animals/:id'),
-            deleteAnimalById: String('/animals/:id'),
+            createAnimal: String('/api/animais'),
+            readAllAnimals: String('/api/animais'),
+            readAnimalById: String('/api/animais/:id'),
+            updateAnimalById: String('/api/animais/:id'),
+            deleteAnimalById: String('/api/animais/:id'),
         };
+
+        loadAnimal()
+            .then(
+                (data) => {
+                    if (data.length) {
+                        // console.log('Registro(s) cadastrado(s):', data);
+                    }
+                    else {
+                        // console.log('Nenhum registro cadastrado!')
+                    }
+                }
+            ).catch(
+                (err) => console.log(err)
+            );
 
         app.use(
             express.json()
