@@ -21,11 +21,11 @@ const createAnimal = async (request, response) => {
 
     const animal = {
         animal_id: Date.now(),
-        animal_name: String(animal_name).toLowerCase(),
-        animal_type: String(animal_type).toLowerCase(),
-        animal_color: String(animal_color).toLowerCase(),
-        animal_breed: String(animal_breed).toLowerCase(),
-        animal_description: String(animal_description).toLowerCase(),
+        animal_name: String(animal_name).toLowerCase().trim(),
+        animal_type: String(animal_type).toLowerCase().trim(),
+        animal_color: String(animal_color).toLowerCase().trim(),
+        animal_breed: String(animal_breed).toLowerCase().trim(),
+        animal_description: String(animal_description).toLowerCase().trim(),
     };
 
     const data = await loadAnimal();
