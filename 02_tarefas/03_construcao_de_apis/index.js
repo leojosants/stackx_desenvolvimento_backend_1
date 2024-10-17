@@ -53,7 +53,7 @@ import { loadAnimal } from './src/utils/load-animal.js';
         );
 
         app.put(
-            endpoints.updateAnimalById, updateAnimalById,
+            endpoints.updateAnimalById, validateAnimal, updateAnimalById,
         );
 
         app.delete(
