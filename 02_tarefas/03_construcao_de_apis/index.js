@@ -8,19 +8,12 @@ import {
     updateAnimalById,
 } from './src/crud/animal-crud.js';
 import { loadAnimal } from './src/utils/load-animal.js';
+import { endpoints } from './src/utils/endpoints.js';
 
 (
     () => {
         const app = express();
         const port = Number(3000);
-
-        const endpoints = {
-            createAnimal: String('/api/animais'),
-            readAllAnimals: String('/api/animais'),
-            readAnimalById: String('/api/animais/:id'),
-            updateAnimalById: String('/api/animais/:id'),
-            deleteAnimalById: String('/api/animais/:id'),
-        };
 
         loadAnimal()
             .then(
@@ -41,28 +34,37 @@ import { loadAnimal } from './src/utils/load-animal.js';
         );
 
         app.post(
-            endpoints.createAnimal, validateAnimal, createAnimal,
+            endpoints.createAnimal,
+            validateAnimal,
+            createAnimal,
         );
 
         app.get(
-            endpoints.readAllAnimals, readAllAnimal,
+            endpoints.readAllAnimals,
+            readAllAnimal,
         );
 
         app.get(
-            endpoints.readAnimalById, readAnimalById,
+            endpoints.readAnimalById,
+            readAnimalById,
         );
 
         app.put(
-            endpoints.updateAnimalById, validateAnimal, updateAnimalById,
+            endpoints.updateAnimalById,
+            validateAnimal,
+            updateAnimalById,
         );
 
         app.delete(
-            endpoints.deleteAnimalById, deleteAnimalById,
+            endpoints.deleteAnimalById,
+            deleteAnimalById,
         );
 
         app.listen(
             port, () => {
-                console.log(`Servidor executando em http://localhost:${port}`);
+                console.log(
+                    `Servidor executando em http://localhost:${port}`
+                );
             }
         );
     }
