@@ -26,14 +26,20 @@
   - Ainda no terminal aberto, execute o comando abaixo para clonar o projeto:
 
     ```bash
-        git clone https://github.com/leojosants/stackx_desenvolvimento_backend_1/tree/main/02_tarefas/03_construcao_de_apis
+        git clone https://github.com/leojosants/stackx_desenvolvimento_backend_1.git
+      ```
+
+    - OU
+
+    ```bash
+        git clone git@github.com:leojosants/stackx_desenvolvimento_backend_1.git
     ```
 
 - Passo 3
   - Ainda no terminal aberto, execute o comando abaixo para navegar até o projeto clonado:
 
     ```bash
-        cd stackx_desenvolvimento_backend_1/tree/main/02_tarefas/03_construcao_de_apis
+        cd stackx_desenvolvimento_backend_1/02_tarefas/03_construcao_de_apis
     ```
 
 - Passo 4
