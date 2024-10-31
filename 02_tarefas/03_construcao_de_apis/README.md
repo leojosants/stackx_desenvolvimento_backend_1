@@ -78,6 +78,39 @@
 
 Endpoints
 
+- ```POST /api/animals/create-animal```
+
+    Adiciona um novo animal.
+
+    Corpo da Requisição:
+
+    ```json
+    [
+      {
+        "animal_name": "bento",
+        "animal_type": "gato",
+        "animal_color": "preto e branco",
+        "animal_breed": "sem raça",
+        "animal_description": "é tranquilo e alegre"
+      }
+    ]
+    ```
+
+    Resposta:
+
+    ```json
+    [
+      {
+        "animal_id": 1727470916795,
+        "animal_name": "bento",
+        "animal_type": "gato",
+        "animal_color": "preto e branco",
+        "animal_breed": "sem raça",
+        "animal_description": "é tranquilo e alegre"
+      }
+    ]
+    ```
+
 - ```GET /api/animals/read-all-animals```
 
     Retorna todos os animais.
@@ -86,30 +119,30 @@ Endpoints
 
     ```json
     [
-        {
-            "animal_id": 1727470916795,
-            "animal_name": "bento",
-            "animal_type": "gato",
-            "animal_color": "preto e branco",
-            "animal_breed": "sem raça",
-            "animal_description": "é tranquilo e alegre"
-        },
-        {
-            "animal_id": 1727470916796,
-            "animal_name": "sushy",
-            "animal_type": "gato",
-            "animal_color": "marrom e branco",
-            "animal_breed": "sem raça",
-            "animal_description": "é tranquilo e preguiçoso"
-        },
-        {
-            "animal_id": 1727470916799,
-            "animal_name": "tina",
-            "animal_type": "gato",
-            "animal_color": "marrom rajada",
-            "animal_breed": "sem raça",
-            "animal_description": "é bipolar"
-        },
+      {
+        "animal_id": 1727470916795,
+        "animal_name": "bento",
+        "animal_type": "gato",
+        "animal_color": "preto e branco",
+        "animal_breed": "sem raça",
+        "animal_description": "é tranquilo e alegre"
+      },
+      {
+        "animal_id": 1727470916796,
+        "animal_name": "sushy",
+        "animal_type": "gato",
+        "animal_color": "marrom e branco",
+        "animal_breed": "sem raça",
+        "animal_description": "é tranquilo e preguiçoso"
+      },
+      {
+        "animal_id": 1727470916799,
+        "animal_name": "tina",
+        "animal_type": "gato",
+        "animal_color": "marrom rajada",
+        "animal_breed": "sem raça",
+        "animal_description": "é bipolar"
+      },
     ]
     ```
 
@@ -121,47 +154,14 @@ Endpoints
 
     ```json
     [
-        {
-            "animal_id": 1727470916795,
-            "animal_name": "bento",
-            "animal_type": "gato",
-            "animal_color": "preto e branco",
-            "animal_breed": "sem raça",
-            "animal_description": "é tranquilo e alegre"
-        }
-    ]
-    ```
-
-- ```POST /api/animals/create-animal```
-
-    Adiciona um novo animal.
-
-    Corpo da Requisição:
-
-    ```json
-    [
-        {
-            "animal_name": "bento",
-            "animal_type": "gato",
-            "animal_color": "preto e branco",
-            "animal_breed": "sem raça",
-            "animal_description": "é tranquilo e alegre"
-        }
-    ]
-    ```
-
-    Resposta:
-
-    ```json
-    [
-        {
-            "animal_id": 1727470916795,
-            "animal_name": "bento",
-            "animal_type": "gato",
-            "animal_color": "preto e branco",
-            "animal_breed": "sem raça",
-            "animal_description": "é tranquilo e alegre"
-        }
+      {
+        "animal_id": 1727470916795,
+        "animal_name": "bento",
+        "animal_type": "gato",
+        "animal_color": "preto e branco",
+        "animal_breed": "sem raça",
+        "animal_description": "é tranquilo e alegre"
+      }
     ]
     ```
 
@@ -173,9 +173,9 @@ Endpoints
 
     ```json
     [
-        {
-            "message": "Registro de id 1727470916795 atualizado!"
-        }
+      {
+        "message": "Registro de id 1727470916795 atualizado!"
+      }
     ]
     ```
 
@@ -187,9 +187,9 @@ Endpoints
 
     ```json
     [
-        {
-            "message": "Registro de id 1727470916795 excluído!"
-        }
+      {
+        "message": "Registro de id 1727470916795 excluído!"
+      }
     ]
     ```
 
