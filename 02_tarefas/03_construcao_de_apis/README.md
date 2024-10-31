@@ -16,7 +16,6 @@
 ```Executar todos os comandos abaixo no terminal Git Bash```
 
 - Passo 1
-
   - Abra o terminal em um diretório de preferência e execute o comando abaixo para iniciar um repositório vazio:
 
     ```bash
@@ -24,7 +23,6 @@
     ```
 
 - Passo 2
-
   - Ainda no terminal aberto, execute o comando abaixo para clonar o projeto:
 
     ```bash
@@ -32,7 +30,6 @@
     ```
 
 - Passo 3
-
   - Ainda no terminal aberto, execute o comando abaixo para navegar até o projeto clonado:
 
     ```bash
@@ -54,7 +51,6 @@
   - Abra um novo terminal.
 
 - Passo 2
-
   - No terminal, execute o comando abaixo para instalar as dependências contidas no arquivo ```package.json```
 
     ```bash
@@ -62,7 +58,6 @@
     ```
 
 - Passo 3
-
   - No terminal, execute o comando abaixo para iniciar o servidor em modo ```watch```
 
     ```bash
@@ -71,13 +66,13 @@
 
 ## Exemplo de uso
 
-```http://localhost:3000/api/animais```
+```http://localhost:3000/api/animals```
 
 ## Documentação
 
 Endpoints
 
-- ```GET /api/animais```
+- ```GET /api/animals/read-all-animals```
 
     Retorna todos os animais.
 
@@ -112,7 +107,7 @@ Endpoints
     ]
     ```
 
-- ```GET /api/animais/1727470916795```
+- ```GET /api/animals/read-animal/1727470916795```
 
     Retorna um animal.
 
@@ -131,7 +126,7 @@ Endpoints
     ]
     ```
 
-- ```POST /api/animais```
+- ```POST /api/animals/create-animal```
 
     Adiciona um novo animal.
 
@@ -164,7 +159,7 @@ Endpoints
     ]
     ```
 
-- ```PUT /api/animais/1727470916795```
+- ```PUT /api/animals/update-animal/1727470916795```
 
     Atualiza um animal.
 
@@ -178,7 +173,7 @@ Endpoints
     ]
     ```
 
-- ```DELETE /api/animais/1727470916795```
+- ```DELETE /api/animals/delete-animal/1727470916795```
 
     Remove um animal.
 

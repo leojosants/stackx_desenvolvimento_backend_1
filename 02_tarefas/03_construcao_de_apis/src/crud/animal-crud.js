@@ -60,12 +60,12 @@ const readAllAnimal = async (request, response) => {
     if (data.length === 0) {
         return response
             .status(404)
-            .send({ message: 'Nenhum registro cadastrado!' });
+            .send({ message: 'Nenhum registro cadastrado!', data });
     }
 
     return response
         .status(200)
-        .send({ message: 'Registros cadastrados', data });
+        .send({ message: 'Registro(s) cadastrado(s)', data });
 }
 
 const readAnimalById = async (request, response) => {
