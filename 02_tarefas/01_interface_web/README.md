@@ -29,3 +29,6 @@
 
 - Executar servidor
   - ``` npm run start ```
+
+- Acessar interface pelo navegador
+  - ``` http://localhost:3000/ ```
