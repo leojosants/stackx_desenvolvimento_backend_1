@@ -1,0 +1,28 @@
+{
+  "name": "01_interface_web",
+  "version": "1.0.0",
+  "description": "- Objetivo:\r   - O Objetivo desta tarefa é criar uma interface web que consuma os dados da API [Random User Generator](http://randomuser.meLinks).",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./server.js"
+  },
+  "keywords": [
+    "web",
+    "api",
+    "database"
+  ],
+  "author": "Leonardo Santos",
+  "license": "ISC",
+  "dependencies": {
+    "01_interface_web": "file:",
+    "axios": "^1.7.7",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.21.0",
+    "mongoose": "^8.6.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.5"
+  }
+}

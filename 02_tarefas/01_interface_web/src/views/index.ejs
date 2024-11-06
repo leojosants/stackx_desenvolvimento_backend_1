@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Randomuser API</title>
+        <link rel="shortcut icon" href="/assets/images/favicon.png"
+            type="image/x-icon">
+        <link rel="stylesheet" href="/assets/css/styles.css">
+        <script type="module" src="/assets/js/index.js" defer></script>
+    </head>
+    <body>
+        <header class="c-body__header">
+            <h1 class="c-header__title">
+                Lista de usuários
+            </h1>
+
+            <a href="/fetch-users" class="c-header__add-user-button"
+                title="Clique para adicionar um novo usuário"
+                data-add-user-button>
+                Adicionar novo usuário
+            </a>
+        </header>
+
+        <main class="c-body__list-wrapper"
+            data-list-wrapper>
+            <% if(users.length > 0) { %>
+            <ul class="c-list-wrapper__list">
+                <% users.forEach((user) => { %>
+                <li class="c-list-wrapper__item">
+                    <div class="c-list-wrapper__image">
+                        <img
+                            src="<%= user.picture %>"
+                            alt="Foto/perfil de<%= user.name %>"
+                            width="150"
+                            height="150">
+                    </div>
+
+                    <div class="c-list-wrapper__content">
+                        <p class="c-list-wrapper__name">
+                            <%= user.name %>
+                        </p>
+
+                        <p class="c-list-wrapper__email">
+                            <%= user.email %>
+                        </p>
+
+                        <p class="c-list-wrapper__dob">
+                            <%= new Date(user.dob).toLocaleDateString() %>
+                        </p>
+
+                        <p class="c-list-wrapper__age">
+                            <%= user.age %> anos
+                        </p>
+                    </div>
+
+                    <div class="c-list-wrapper__delete-user-button">
+                        <a href="/delete-user/<%= user._id %>"
+                            title="Clique para deletar este usuário"
+                            data-delete-user-button>
+                            Deletar
+                        </a>
+                    </div>
+                </li>
+                <% }) %>
+            </ul>
+            <% } else { %>
+            <!-- <h2 class="c-list-wrapper__message"> -->
+            <h2 class="c-list-wrapper__message">
+                Não há usuário(s) registrado(s) ! ! !
+            </h2>
+            <% } %>
+        </main>
+
+        <section class="c-body__loading" data-loading>
+            <span> Aguarde... </span>
+        </section>
+
+        <footer class="c-body__footer">
+            <a href="#">leojosants</a>
+        </footer>
+    </body>
+</html>

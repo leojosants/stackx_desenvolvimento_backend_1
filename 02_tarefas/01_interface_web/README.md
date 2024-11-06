@@ -12,3 +12,11 @@
 
 - O que entregar?
   - Link do Readme do seu GitHub dentro da plataforma.
+
+## Executando projeto
+
+- Baixar dependências
+  - ``` npm install ```
+
+- Executar servidor
+  - ``` npm run start ```
