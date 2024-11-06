@@ -15,6 +15,15 @@
 
 ## Executando projeto
 
+- Para persistência dos dados, foi utilizado o banco de dados não relacional (NoSQL) MongoDB
+
+- Gerar uma string de conexão do MongoDB;
+
+- Criar um arquivo **.env** na raiz do projeto;
+
+- Adicionar no arquivo **.env** a string de conexão para o banco de dados;
+  - Exemplo: ``` MONGO_URI=aqui_vem_a_string_de_conexao_com_o_banco ```
+
 - Baixar dependências
   - ``` npm install ```
 
