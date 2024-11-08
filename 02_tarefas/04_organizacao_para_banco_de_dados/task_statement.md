@@ -22,4 +22,5 @@ Descreva como você organizaria um banco de dados que precisa , no inicio, de:
 O que entregar?
 
 Link do Readme do seu GitHub dentro da plataforma.
-- https://github.com/leojosants/stackx_desenvolvimento_backend_1/tree/main/02_tarefas/04_organizacao_para_banco_de_dados
+
+- <https://github.com/leojosants/stackx_desenvolvimento_backend_1/tree/main/02_tarefas/04_organizacao_para_banco_de_dados>
