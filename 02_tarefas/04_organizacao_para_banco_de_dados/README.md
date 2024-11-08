@@ -144,7 +144,7 @@
   
   - Quando um hóspede reserva um lugar, uma nova entrada é criada na tabela **```hospedagens```**, registrando o período da reserva.
   
-  - Após a estadia, o hóspede pode deixar uma avaliação na tabela **```avaliacoes``**`, permitindo que outros usuários vejam feedback sobre as hospedagens.
+  - Após a estadia, o hóspede pode deixar uma avaliação na tabela **```avaliacoes```**, permitindo que outros usuários vejam feedback sobre as hospedagens.
 
 ## Conclusão
 
