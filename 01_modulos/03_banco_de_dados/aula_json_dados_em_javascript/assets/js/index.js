@@ -3,8 +3,8 @@ import {
     displayInConsole,
     stackElementArray,
     tellMeHi,
-    transformsDataIntoJsObject,
-    transformsDataIntoJson,
+    transformsDataInJsObject,
+    transformsDataInJson,
 } from "../utils/functions.js";
 
 (() => {
@@ -18,17 +18,17 @@ import {
     stackElementArray(list_pets, animal_dog, animal_cat);
     displayInConsole(list_pets);
 
-    const list_in_json = transformsDataIntoJson(list_pets);
+    const list_in_json = transformsDataInJson(list_pets);
     displayInConsole(list_in_json);
-    displayInConsole(transformsDataIntoJsObject(list_in_json));
+    displayInConsole(transformsDataInJsObject(list_in_json));
 
     const date_today = new Date();
     displayInConsole(date_today);
 
-    const date_in_json = transformsDataIntoJson(date_today);
+    const date_in_json = transformsDataInJson(date_today);
     displayInConsole(date_in_json);
 
-    const return_date = transformsDataIntoJsObject(date_in_json);
+    const return_date = transformsDataInJsObject(date_in_json);
     displayInConsole(return_date);
     displayInConsole(new Date(return_date));
 
@@ -42,7 +42,7 @@ import {
     stackElementArray(new_list, animal_dog, animal_cat);
     displayInConsole(new_list);
 
-    const new_value_in_json = transformsDataIntoJson(new_list);
+    const new_value_in_json = transformsDataInJson(new_list);
     displayInConsole(new_value_in_json);
 
     const json_wrong = '[{name: "Gabriel"}]';

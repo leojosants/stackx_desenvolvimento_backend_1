@@ -11,17 +11,17 @@ export const stackElementArray = (array, ...elementos) => {
     array.push(elementos);
 };
 
-export const transformsDataIntoJson = (data) => {
+export const transformsDataInJson = (data) => {
     return JSON.stringify(data);
 };
 
-export const transformsDataIntoJsObject = (data) => {
+export const transformsDataInJsObject = (data) => {
     return JSON.parse(data);
 };
 
 export const tellMeHi = (data) => {
     try {
-        transformsDataIntoJsObject(data);
+        transformsDataInJsObject(data);
         displayInConsole("oi!");
     }
     catch (error) {
