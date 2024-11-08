@@ -33,12 +33,12 @@ import {
     const buyer_of_storage_converted = transformsDataInJsObject(buyer_of_storage);
     displayInConsole(buyer_of_storage_converted);
 
-    saveDataLocalStorage("o_dado", "informacao");
-    removeDataLocalStorage("o_dado");
-    displayInConsole(retrieveDataLocalStorage("o_dado"));
+    saveDataLocalStorage("the_data", "informacao");
+    removeDataLocalStorage("the_data");
+    displayInConsole(retrieveDataLocalStorage("the_data"));
 
-    saveDataSessionStorage("o_dado", "informacao");
-    displayInConsole(retrieveDataSessionStorage("o_dado"));
-    removeDataLocalStorage("o_dado");
-    displayInConsole(retrieveDataSessionStorage("o_dado"));
+    saveDataSessionStorage("the_data", "informacao");
+    displayInConsole(retrieveDataSessionStorage("the_data"));
+    removeDataLocalStorage("the_data");
+    displayInConsole(retrieveDataSessionStorage("the_data"));
 })();
