@@ -1,4 +1,4 @@
-export const criateObject = (type, name, age, birthdate) => {
+export const createObject = (type, name, age, birthdate) => {
     return {
         type: type,
         name: name,

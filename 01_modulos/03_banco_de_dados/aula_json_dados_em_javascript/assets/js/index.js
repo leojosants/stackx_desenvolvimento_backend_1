@@ -1,5 +1,5 @@
 import {
-    criateObject,
+    createObject,
     displayInConsole,
     stackElementArray,
     tellMeHi,
@@ -8,10 +8,10 @@ import {
 } from "../utils/functions.js";
 
 (() => {
-    const animal_cat = criateObject("gato", "o felino", 7, "07/07");
+    const animal_cat = createObject("gato", "o felino", 7, "07/07");
     displayInConsole(animal_cat);
 
-    const animal_dog = criateObject("cachorro", "o canino", 12, "08/08");
+    const animal_dog = createObject("cachorro", "o canino", 12, "08/08");
     displayInConsole(animal_dog);
 
     const list_pets = [];
