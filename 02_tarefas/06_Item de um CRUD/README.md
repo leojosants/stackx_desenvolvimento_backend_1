@@ -18,38 +18,38 @@
 - **Criar tabela**
 
   ```sql
-    CREATE TABLE produtos (
+    CREATE TABLE products (
         id INT PRIMARY KEY AUTO_INCREMENT,
-        nome VARCHAR(100) NOT NULL,
-        preco FLOAT NOT NULL,
-        quantidade INT NOT NULL
+        name VARCHAR(100) NOT NULL,
+        price FLOAT NOT NULL,
+        quantity INT NOT NULL
     );
   ```
 
 - **Criar --> create ```( C )```**
 
   ```sql
-    INSERT INTO produtos (nome, preco, quantidade) 
+    INSERT INTO products (name, price, quantity) 
     VALUES ('Produto A', 19.99, 100);
   ```
 
 - **Ler --> read ```( R )```**
 
   ```sql
-    SELECT * FROM produtos;
+    SELECT * FROM products;
   ```
 
 - **Atualizar --> update ```( U )```**
 
   ```sql
-    UPDATE produtos 
-    SET quantidade = 150 
-    WHERE nome = 'Produto A';
+    UPDATE products 
+    SET quantity = 150 
+    WHERE name = 'Produto A';
   ```
 
 - **Deletar --> delete ```( D )```**
 
   ```sql
-    DELETE FROM produtos 
-    WHERE nome = 'Produto A';
+    DELETE FROM products 
+    WHERE name = 'Produto A';
   ```
