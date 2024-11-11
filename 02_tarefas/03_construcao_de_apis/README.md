@@ -70,128 +70,13 @@
         npm run nodemon 
     ```
 
-## Exemplo de uso
+## Acessar API
 
-```http://localhost:3000/api/animals```
+- [Clique para acessar API](http://localhost:3000/api/animals/read-all-animals)
 
-## Documentação
+## Documentação Postman
 
-Endpoints
-
-- ```POST /api/animals/create-animal```
-
-    Adiciona um novo animal.
-
-    Corpo da Requisição:
-
-    ```json
-    [
-      {
-        "animal_name": "bento",
-        "animal_type": "gato",
-        "animal_color": "preto e branco",
-        "animal_breed": "sem raça",
-        "animal_description": "é tranquilo e alegre"
-      }
-    ]
-    ```
-
-    Resposta:
-
-    ```json
-    [
-      {
-        "animal_id": 1727470916795,
-        "animal_name": "bento",
-        "animal_type": "gato",
-        "animal_color": "preto e branco",
-        "animal_breed": "sem raça",
-        "animal_description": "é tranquilo e alegre"
-      }
-    ]
-    ```
-
-- ```GET /api/animals/read-all-animals```
-
-    Retorna todos os animais.
-
-    Resposta:
-
-    ```json
-    [
-      {
-        "animal_id": 1727470916795,
-        "animal_name": "bento",
-        "animal_type": "gato",
-        "animal_color": "preto e branco",
-        "animal_breed": "sem raça",
-        "animal_description": "é tranquilo e alegre"
-      },
-      {
-        "animal_id": 1727470916796,
-        "animal_name": "sushy",
-        "animal_type": "gato",
-        "animal_color": "marrom e branco",
-        "animal_breed": "sem raça",
-        "animal_description": "é tranquilo e preguiçoso"
-      },
-      {
-        "animal_id": 1727470916799,
-        "animal_name": "tina",
-        "animal_type": "gato",
-        "animal_color": "marrom rajada",
-        "animal_breed": "sem raça",
-        "animal_description": "é bipolar"
-      },
-    ]
-    ```
-
-- ```GET /api/animals/read-animal/1727470916795```
-
-    Retorna um animal.
-
-    Resposta:
-
-    ```json
-    [
-      {
-        "animal_id": 1727470916795,
-        "animal_name": "bento",
-        "animal_type": "gato",
-        "animal_color": "preto e branco",
-        "animal_breed": "sem raça",
-        "animal_description": "é tranquilo e alegre"
-      }
-    ]
-    ```
-
-- ```PUT /api/animals/update-animal/1727470916795```
-
-    Atualiza um animal.
-
-     Resposta:
-
-    ```json
-    [
-      {
-        "message": "Registro de id 1727470916795 atualizado!"
-      }
-    ]
-    ```
-
-- ```DELETE /api/animals/delete-animal/1727470916795```
-
-    Remove um animal.
-
-    Resposta:
-
-    ```json
-    [
-      {
-        "message": "Registro de id 1727470916795 excluído!"
-      }
-    ]
-    ```
+- [Clique para acessar documentação](https://documenter.getpostman.com/view/20651477/2sAY545dxV)
 
 ### Dependêcias do projeto
 
