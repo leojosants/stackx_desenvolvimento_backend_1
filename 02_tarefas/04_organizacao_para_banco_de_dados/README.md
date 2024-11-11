@@ -8,7 +8,7 @@
 
 ## Estrutura do Banco de Dados
 
-### Tabela: Usuários
+### Tabela: Usuários (users)
 
 - **Descrição**:
   - Armazena informações sobre os usuários da plataforma.
@@ -16,25 +16,25 @@
 - **Colunas**:
   - id: INT, chave primária, auto-incremento.
 
-  - nome: VARCHAR(100), nome do usuário.
+  - name: VARCHAR(100), nome do usuário.
 
   - email: VARCHAR(100), endereço de e-mail único.
 
-  - senha: VARCHAR(255), senha (armazenada de forma segura).
+  - password: VARCHAR(255), senha (armazenada de forma segura).
 
-  - tipo: ENUM('hóspede', 'anfitrião'), tipo de usuário.
+  - type: ENUM('hóspede', 'anfitrião'), tipo de usuário.
 
 ```sql
-    CREATE TABLE usuarios (
+    CREATE TABLE users (
         id INT PRIMARY KEY AUTO_INCREMENT,
-        nome VARCHAR(100) NOT NULL,
+        name VARCHAR(100) NOT NULL,
         email VARCHAR(100) NOT NULL UNIQUE,
-        senha VARCHAR(255) NOT NULL,
-        tipo ENUM('hóspede', 'anfitrião') NOT NULL
+        password VARCHAR(255) NOT NULL,
+        type ENUM('hóspede', 'anfitrião') NOT NULL
     );
 ```
 
-### Tabela: Lugares
+### Tabela: Lugares (places)
 
 - **Descrição**:
   - Armazena informações sobre os lugares disponíveis para hospedagem.
@@ -42,29 +42,29 @@
 - **Colunas**:
   - id: INT, chave primária, auto-incremento.
 
-  - usuario_id: INT, chave estrangeira referenciando ```usuarios(id)```.
+  - user_id: INT, chave estrangeira referenciando ```users(id)```.
 
-  - titulo: VARCHAR(255), título do anúncio.
+  - title: VARCHAR(255), título do anúncio.
 
-  - descricao: TEXT, descrição do lugar.
+  - description: TEXT, descrição do lugar.
 
-  - endereco: VARCHAR(255), endereço do lugar.
+  - address: VARCHAR(255), endereço do lugar.
 
-  - preco_por_noite: DECIMAL(10, 2), preço por noite.
+  - price_per_night: DECIMAL(10, 2), preço por noite.
 
 ```sql
-    CREATE TABLE lugares (
+    CREATE TABLE places (
         id INT PRIMARY KEY AUTO_INCREMENT,
-        usuario_id INT,
-        titulo VARCHAR(255) NOT NULL,
-        descricao TEXT NOT NULL,
-        endereco VARCHAR(255) NOT NULL,
-        preco_por_noite DECIMAL(10, 2) NOT NULL,
-        FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
+        user_id INT,
+        title VARCHAR(255) NOT NULL,
+        description TEXT NOT NULL,
+        address VARCHAR(255) NOT NULL,
+        price_per_night DECIMAL(10, 2) NOT NULL,
+        FOREIGN KEY (user_id) REFERENCES users(id)
     );
 ```
 
-### Tabela: Hospedagens
+### Tabela: Hospedagens (accommodation)
 
 - **Descrição**:
   - Registra as reservas feitas pelos usuários em lugares específicos.
@@ -72,27 +72,27 @@
 - **Colunas**:
   - id: INT, chave primária, auto-incremento.
 
-  - usuario_id: INT, chave estrangeira referenciando ```usuarios(id)```.
+  - user_id: INT, chave estrangeira referenciando ```users(id)```.
 
-  - lugar_id: INT, chave estrangeira referenciando ```lugares(id)```.
+  - place_id: INT, chave estrangeira referenciando ```places(id)```.
 
-  - data_inicio: DATE, data de início da hospedagem.
+  - start_date: DATE, data de início da hospedagem.
 
-  - data_fim: DATE, data de término da hospedagem.
+  - end_date: DATE, data de término da hospedagem.
   
 ```sql
-    CREATE TABLE hospedagens (
+    CREATE TABLE accommodation (
         id INT PRIMARY KEY AUTO_INCREMENT,
-        usuario_id INT,
-        lugar_id INT,
-        data_inicio DATE NOT NULL,
-        data_fim DATE NOT NULL,
-        FOREIGN KEY (usuario_id) REFERENCES usuarios(id),
-        FOREIGN KEY (lugar_id) REFERENCES lugares(id)
+        user_id INT,
+        place_id INT,
+        start_date DATE NOT NULL,
+        end_date DATE NOT NULL,
+        FOREIGN KEY (user_id) REFERENCES users(id),
+        FOREIGN KEY (place_id) REFERENCES places(id)
     );
 ```
 
-### Tabela: Avaliações
+### Tabela: Avaliações (reviews)
 
 - **Descrição**:
   - Armazena as avaliações feitas pelos usuários sobre as hospedagens.
@@ -100,51 +100,51 @@
 - **Colunas**:
   - id: INT, chave primária, auto-incremento.
 
-  - hospedagem_id: INT, chave estrangeira referenciando ```hospedagens(id)```.
+  - hosting_id: INT, chave estrangeira referenciando ```accommodation(id)```.
 
-  - usuario_id: INT, chave estrangeira referenciando ```usuarios(id)```.
+  - user_id: INT, chave estrangeira referenciando ```users(id)```.
 
-  - nota: INT, nota dada pelo usuário (por exemplo, de 1 a 5).
+  - note: INT, nota dada pelo usuário (por exemplo, de 1 a 5).
 
-  - comentario: TEXT, comentário adicional sobre a hospedagem.
+  - comment: TEXT, comentário adicional sobre a hospedagem.
 
 ```sql
-    CREATE TABLE avaliacoes (
+    CREATE TABLE reviews (
         id INT PRIMARY KEY AUTO_INCREMENT,
-        hospedagem_id INT,
-        usuario_id INT,
-        nota INT CHECK (nota >= 1 AND nota <= 5),
-        comentario TEXT,
-        FOREIGN KEY (hospedagem_id) REFERENCES hospedagens(id),
-        FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
+        hosting_id INT,
+        user_id INT,
+        note INT CHECK (note >= 1 AND note <= 5),
+        comment TEXT,
+        FOREIGN KEY (hosting_id) REFERENCES accommodation(id),
+        FOREIGN KEY (user_id) REFERENCES users(id)
     );
 ```
 
 ## Relações entre Tabelas
 
-- Usuários e Lugares:
+- Usuários (users) e Lugares (places):
   - Um usuário pode cadastrar vários lugares para hospedagem **```(relação um-para-muitos)```**.
 
-- Usuários e Hospedagens:
+- Usuários (users) e Hospedagens (accommodation):
   - Um usuário pode fazer várias reservas **```(relação um-para-muitos)```**.
 
-- Lugares e Hospedagens:
+- Lugares (places) e Hospedagens (accommodation):
   - Um lugar pode ser reservado várias vezes por diferentes usuários **```(relação um-para-muitos)```**.
 
-- Hospedagens e Avaliações:
+- Hospedagens (accommodation) e Avaliações (reviews):
   - Uma hospedagem pode ter várias avaliações feitas por diferentes usuários **```(relação um-para-muitos)```**.
 
 ## Cenário de Uso
 
 - Com essa estrutura de banco de dados:
 
-  - Quando um usuário se cadastrar na plataforma como hóspede ou anfitrião, seus dados são armazenados na tabela **```usuarios```**.
+  - Quando um usuário se cadastrar na plataforma como hóspede ou anfitrião, seus dados são armazenados na tabela **```users```**.
   
-  - Os anfitriões podem cadastrar seus lugares na tabela **```lugares```**, associando cada lugar ao seu respectivo usuário.
+  - Os anfitriões podem cadastrar seus lugares na tabela **```places```**, associando cada lugar ao seu respectivo usuário.
   
-  - Quando um hóspede reserva um lugar, uma nova entrada é criada na tabela **```hospedagens```**, registrando o período da reserva.
+  - Quando um hóspede reserva um lugar, uma nova entrada é criada na tabela **```accommodation```**, registrando o período da reserva.
   
-  - Após a estadia, o hóspede pode deixar uma avaliação na tabela **```avaliacoes```**, permitindo que outros usuários vejam feedback sobre as hospedagens.
+  - Após a estadia, o hóspede pode deixar uma avaliação na tabela **```reviews```**, permitindo que outros usuários vejam feedback sobre as hospedagens.
 
 ## Conclusão
 
