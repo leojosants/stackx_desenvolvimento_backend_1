@@ -1,10 +1,9 @@
 const UserModel = require("../models/UserModel");
-const axios = require("axios");
+const random_user_api = require("../services/random-user-api");
 
 exports.fetchUsers = async (request, response) => {
     try {
-        const random_user_api = "https://randomuser.me/api/";
-        const resp = await axios.get(random_user_api);
+        const resp = await random_user_api.get();
         const userData = resp.data.results[0];
 
         const newUser = new UserModel(
