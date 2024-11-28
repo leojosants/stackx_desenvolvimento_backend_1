@@ -1,11 +1,9 @@
 const express = require("express");
 const cors = require("cors");
-const sqlit3 = require("sqlite3").verbose();
-
+const db = require('../src/config/database');
 
 const app = express();
 const port = 3000;
-const db = new sqlit3.Database("database/db.db");
 
 db.serialize(
     () => {
