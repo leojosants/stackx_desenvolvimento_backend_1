@@ -5,18 +5,6 @@ const db = require('../src/config/database');
 const app = express();
 const port = 3000;
 
-db.serialize(
-    () => {
-        db.run(
-            `CREATE TABLE IF NOT EXISTS profiles(
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                name TEXT NOT NULL,
-                age INT
-            )`
-        );
-    }
-);
-
 const endpoints = {
     home: "/",
     getProfileById: "/:id",
